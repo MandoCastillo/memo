@@ -1,10 +1,10 @@
-// @ts-ignore
 {
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
   },
   "include": ["vite.config.ts"]
 }
