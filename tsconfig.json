@@ -22,6 +22,7 @@
       "@/organisms": ["./common/components/organisms/index.ts"],
       "@/templates": ["./common/components/templates/index.ts"],
       "@/icons": ["./common/components/custom-icons/index.ts"],
+      "@/assets/*": ["./common/assets/*"],
       "@/modules/*": ["./modules/*"],
       "@/hooks": ["./common/hooks/index.ts"],
       "@/adapters": ["./common/adapters/index.ts"],
