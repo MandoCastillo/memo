@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { SimpleGrid } from '@chakra-ui/react';
 
-import { uuidHelper } from '@/helpers';
+import { arrayHelper, uuidHelper } from '@/helpers';
 import { ICard } from '@/interfaces';
 
 import { Card } from '../card';
@@ -15,9 +15,8 @@ const cardsInitial: ICard[] = Array.from(Array(9).keys())
     isSelected: false
   }));
 
-// eslint-disable-next-line max-lines-per-function
 export const Board = () => {
-  const [cards, setCards] = useState<ICard[]>(cardsInitial);
+  const [cards, setCards] = useState<ICard[]>(arrayHelper.shuffle(cardsInitial));
   const [selectedCards, setSelectedCards] = useState<ICard[]>([]);
   const [areDifferent, setAreDifferent] = useState(false);
 
