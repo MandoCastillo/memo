@@ -8,7 +8,7 @@ interface CardProps {
 }
 
 export const Card = ({ card, handleCardClick }: CardProps) => {
-  const image = card.isSelected ? card.image : '/cards/cover.png';
+  const image = card.isSelected ? card.image : '/cards/cover.webp';
 
   return (
     <GridItem colSpan={[6, 3]}>
