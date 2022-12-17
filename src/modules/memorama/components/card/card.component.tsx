@@ -20,7 +20,7 @@ export const Card = ({ card, handleCardClick }: CardProps) => {
         onClick={() => handleCardClick(card)}
         role="button"
       >
-        <Image src={image} alt="card" objectFit="cover" />
+        <Image src={image} alt="card" objectFit="cover" maxWidth="100%" />
       </AspectRatio>
     </GridItem>
   );

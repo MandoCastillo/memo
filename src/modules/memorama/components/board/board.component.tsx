@@ -13,11 +13,11 @@ export const Board = () => {
       {areAllCardsSelected && (
         <ReactConfetti width={window.innerWidth} height={window.innerHeight} />
       )}
-      <Stack gap={4} p={2}>
+      <Stack gap={4}>
         <Text textAlign="center" fontSize="3xl">
           Attempts: {attempts}
         </Text>
-        <SimpleGrid columns={24} gap={4}>
+        <SimpleGrid columns={24} gap={[1, 3]}>
           {cards.map(card => (
             <Card key={card.id} card={card} handleCardClick={handleCardClick} />
           ))}
