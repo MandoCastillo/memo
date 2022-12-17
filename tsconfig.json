@@ -14,7 +14,29 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@/atoms": ["./common/components/atoms/index.ts"],
+      "@/molecules": ["./common/components/molecules/index.ts"],
+      "@/organisms": ["./common/components/organisms/index.ts"],
+      "@/templates": ["./common/components/templates/index.ts"],
+      "@/icons": ["./common/components/custom-icons/index.ts"],
+      "@/modules/*": ["./modules/*"],
+      "@/hooks": ["./common/hooks/index.ts"],
+      "@/adapters": ["./common/adapters/index.ts"],
+      "@/guards": ["./common/guards/index.ts"],
+      "@/helpers": ["./common/helpers/index.ts"],
+      "@/lib": ["./common/lib/index.ts"],
+      "@/services": ["./common/services/index.ts"],
+      "@/theme": ["./common/theme/index.ts"],
+      "@/constants": ["./common/constants/index.ts"],
+      "@/interfaces": ["./common/interfaces/index.ts"],
+      "@/types": ["./common/types/index.ts"],
+      "@/store": ["./common/store/index.ts"],
+      "@/slices": ["./common/store/slices/index.ts"],
+      "@/__test__/*": ["./__test__/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
