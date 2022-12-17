@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { SimpleGrid } from '@chakra-ui/react';
 
+import { uuidHelper } from '@/helpers';
 import { ICard } from '@/interfaces';
 
 import { Card } from '../card';
@@ -9,7 +10,7 @@ import { Card } from '../card';
 const cardsInitial: ICard[] = Array.from(Array(9).keys())
   .concat(Array.from(Array(9).keys()))
   .map(num => ({
-    id: Math.random() * 16,
+    id: uuidHelper.generateUUID(),
     image: `/cards/00${num + 1}.png`,
     isSelected: false
   }));
@@ -21,7 +22,6 @@ export const Board = () => {
   const [areDifferent, setAreDifferent] = useState(false);
 
   const handleCardClick = (cardSelected: ICard) => {
-    // if selectedCards has 2 cards, return
     if (areDifferent) {
       return;
     }
