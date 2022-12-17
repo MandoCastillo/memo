@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SimpleGrid } from '@chakra-ui/react';
+import { Button, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 
 import { arrayHelper, uuidHelper } from '@/helpers';
 import { ICard } from '@/interfaces';
@@ -19,6 +19,16 @@ export const Board = () => {
   const [cards, setCards] = useState<ICard[]>(arrayHelper.shuffle(cardsInitial));
   const [selectedCards, setSelectedCards] = useState<ICard[]>([]);
   const [areDifferent, setAreDifferent] = useState(false);
+  const [attempts, setAttempts] = useState<number>(0);
+
+  const areAllCardsSelected = cards.every(card => card.isSelected);
+
+  const handleResetGame = () => {
+    setCards(arrayHelper.shuffle(cardsInitial));
+    setSelectedCards([]);
+    setAreDifferent(false);
+    setAttempts(0);
+  };
 
   const handleCardClick = (cardSelected: ICard) => {
     if (areDifferent) {
@@ -44,6 +54,9 @@ export const Board = () => {
       setCards(cardsCopy);
       return;
     }
+
+    // add new attempt
+    setAttempts(attempts + 1);
 
     // cards are equal
     if (selectedCards.length === 1 && selectedCards[0].image === cardSelected.image) {
@@ -88,10 +101,16 @@ export const Board = () => {
   };
 
   return (
-    <SimpleGrid columns={8} gap={4}>
-      {cards.map(card => (
-        <Card key={card.id} card={card} handleCardClick={handleCardClick} />
-      ))}
-    </SimpleGrid>
+    <Stack gap={4} p={2}>
+      <Text textAlign="center">Attempts: {attempts}</Text>
+      <SimpleGrid columns={24} gap={4}>
+        {cards.map(card => (
+          <Card key={card.id} card={card} handleCardClick={handleCardClick} />
+        ))}
+      </SimpleGrid>
+      <Button onClick={handleResetGame}>
+        {areAllCardsSelected ? 'You win! Resert' : 'Reset game'}
+      </Button>
+    </Stack>
   );
 };
