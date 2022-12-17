@@ -4,9 +4,12 @@ import { ICard } from '@/interfaces';
 
 interface CardProps {
   card: ICard;
+  handleCardClick: (card: ICard) => void;
 }
 
-export const Card = ({ card }: CardProps) => {
+export const Card = ({ card, handleCardClick }: CardProps) => {
+  const image = card.isSelected ? card.image : '/cards/cover.png';
+
   return (
     <AspectRatio
       maxW="200px"
@@ -14,8 +17,10 @@ export const Card = ({ card }: CardProps) => {
       _hover={{
         cursor: 'pointer'
       }}
+      onClick={() => handleCardClick(card)}
+      role="button"
     >
-      <Image src={card.image} alt="card" objectFit="cover" />
+      <Image src={image} alt="card" objectFit="cover" />
     </AspectRatio>
   );
 };
