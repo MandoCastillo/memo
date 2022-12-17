@@ -1,18 +1,10 @@
 import { useState } from 'react';
 
-import { arrayHelper, uuidHelper } from '@/helpers';
+import { arrayHelper, cardsHelper } from '@/helpers';
 import { ICard } from '@/interfaces';
 
-const cardsInitial: ICard[] = Array.from(Array(9).keys())
-  .concat(Array.from(Array(9).keys()))
-  .map(num => ({
-    id: uuidHelper.generateUUID(),
-    image: `/cards/00${num + 1}.png`,
-    isSelected: false
-  }));
-
-export const useBoard = () => {
-  const [cards, setCards] = useState<ICard[]>(arrayHelper.shuffle(cardsInitial));
+export const useBoard = (numberCards = 9) => {
+  const [cards, setCards] = useState<ICard[]>(cardsHelper.getGetRandomCards(numberCards));
   const [selectedCards, setSelectedCards] = useState<ICard[]>([]);
   const [areDifferent, setAreDifferent] = useState(false);
   const [attempts, setAttempts] = useState<number>(0);
@@ -20,7 +12,7 @@ export const useBoard = () => {
   const areAllCardsSelected = cards.every(card => card.isSelected);
 
   const handleResetGame = () => {
-    setCards(arrayHelper.shuffle(cardsInitial));
+    setCards(arrayHelper.shuffle(cardsHelper.getGetRandomCards(numberCards)));
     setSelectedCards([]);
     setAreDifferent(false);
     setAttempts(0);

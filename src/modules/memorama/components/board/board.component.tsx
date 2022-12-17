@@ -6,7 +6,7 @@ import { Card } from '../card';
 import { useBoard } from './use-boards';
 
 export const Board = () => {
-  const { attempts, areAllCardsSelected, cards, handleCardClick, handleResetGame } = useBoard();
+  const { attempts, areAllCardsSelected, cards, handleCardClick, handleResetGame } = useBoard(9);
 
   return (
     <>
