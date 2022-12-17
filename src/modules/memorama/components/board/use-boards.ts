@@ -84,7 +84,7 @@ export const useBoard = (numberCards = 9) => {
         });
         setCards(newCardsRevert);
         setAreDifferent(false);
-      }, 700);
+      }, 1000);
     }
   };
 
