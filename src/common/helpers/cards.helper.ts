@@ -8,7 +8,7 @@ const getGetRandomCards = (numberCards: number): ICard[] => {
     .concat(Array.from(Array(numberCards).keys()))
     .map(num => ({
       id: uuidHelper.generateUUID(),
-      image: `/cards/${(num + 1).toString().padStart(3, '0')}.png`,
+      image: `/cards/${(num + 1).toString().padStart(3, '0')}.webp`,
       isSelected: false
     }));
 
