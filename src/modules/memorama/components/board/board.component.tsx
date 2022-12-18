@@ -22,14 +22,16 @@ export const Board = () => {
         <Text textAlign="center" fontSize="3xl">
           Attempts: {attempts}
         </Text>
+        {areAllCardsSelected && (
+          <Button onClick={handleResetGame} colorScheme="gray">
+            You win! Reset game
+          </Button>
+        )}
         <SimpleGrid columns={24} gap={[1, 3]}>
           {cards.map(card => (
             <Card key={card.id} card={card} handleCardClick={handleCardClick} />
           ))}
         </SimpleGrid>
-        <Button onClick={handleResetGame} colorScheme={areAllCardsSelected ? 'teal' : 'gray'}>
-          {areAllCardsSelected ? 'You win! Reset' : 'Reset game'}
-        </Button>
       </Stack>
     </>
   );
