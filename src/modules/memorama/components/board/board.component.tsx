@@ -13,7 +13,12 @@ export const Board = () => {
       {areAllCardsSelected && (
         <ReactConfetti width={window.innerWidth} height={window.innerHeight} />
       )}
-      <Stack gap={4}>
+      <Stack
+        gap={4}
+        background="url(/board-bg.png) no-repeat center center fixed"
+        backgroundSize="cover"
+        h="100vh"
+      >
         <Text textAlign="center" fontSize="3xl">
           Attempts: {attempts}
         </Text>

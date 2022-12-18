@@ -1,4 +1,5 @@
 import { AspectRatio, GridItem, Image } from '@chakra-ui/react';
+import ReactCardFlip from 'react-card-flip';
 
 import { ICard } from '@/interfaces';
 
@@ -8,8 +9,6 @@ interface CardProps {
 }
 
 export const Card = ({ card, handleCardClick }: CardProps) => {
-  const image = card.isSelected ? card.image : '/cards/cover.webp';
-
   return (
     <GridItem colSpan={[6, 3]}>
       <AspectRatio
@@ -20,7 +19,10 @@ export const Card = ({ card, handleCardClick }: CardProps) => {
         onClick={() => handleCardClick(card)}
         role="button"
       >
-        <Image src={image} alt="card" objectFit="cover" maxWidth="100%" />
+        <ReactCardFlip isFlipped={card.isSelected} flipDirection="horizontal">
+          <Image src="/cards/cover.webp" alt="card" objectFit="cover" maxWidth="100%" />
+          <Image src={card.image} alt="card" objectFit="cover" maxWidth="100%" />
+        </ReactCardFlip>
       </AspectRatio>
     </GridItem>
   );
