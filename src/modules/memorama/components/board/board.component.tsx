@@ -15,15 +15,21 @@ export const Board = () => {
       )}
       <Stack
         gap={4}
-        background="url(/board-bg.png) no-repeat center center fixed"
+        background="url(/board-bg-2.jpg) no-repeat center center fixed"
         backgroundSize="cover"
         h="100vh"
       >
-        <Text textAlign="center" fontSize="3xl">
+        <Text
+          textAlign="center"
+          fontSize="3xl"
+          color="white"
+          fontWeight="bold"
+          textShadow="-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"
+        >
           Attempts: {attempts}
         </Text>
         {areAllCardsSelected && (
-          <Button onClick={handleResetGame} colorScheme="gray">
+          <Button onClick={handleResetGame} colorScheme="teal">
             You win! Reset game
           </Button>
         )}

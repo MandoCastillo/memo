@@ -19,7 +19,7 @@ export const useBoard = (numberCards = 9) => {
   };
 
   const handleCardClick = (cardSelected: ICard) => {
-    if (areDifferent) {
+    if (areDifferent || cardSelected.isSelected) {
       return;
     }
 
