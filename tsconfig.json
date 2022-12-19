@@ -28,6 +28,7 @@
       "@/adapters": ["./common/adapters/index.ts"],
       "@/guards": ["./common/guards/index.ts"],
       "@/helpers": ["./common/helpers/index.ts"],
+      "@/styles/*": ["./common/styles/*"],
       "@/lib": ["./common/lib/index.ts"],
       "@/services": ["./common/services/index.ts"],
       "@/theme": ["./common/theme/index.ts"],
