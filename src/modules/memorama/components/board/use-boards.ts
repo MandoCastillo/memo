@@ -6,6 +6,7 @@ import { ICard } from '@/interfaces';
 export const useBoard = (numberCards = 9) => {
   const [cards, setCards] = useState<ICard[]>(cardsHelper.getGetRandomCards(numberCards));
   const [selectedCards, setSelectedCards] = useState<ICard[]>([]);
+  const [cardsRevealed, setCardsRevealed] = useState<ICard[]>([]);
   const [areDifferent, setAreDifferent] = useState(false);
   const [attempts, setAttempts] = useState<number>(0);
 
@@ -55,6 +56,8 @@ export const useBoard = (numberCards = 9) => {
         isSelected: true
       };
 
+      setCardsRevealed([...cardsRevealed, cardSelected, selectedCards[0]]);
+
       setCards(cardsCopy);
       setSelectedCards([]);
     }
@@ -92,6 +95,8 @@ export const useBoard = (numberCards = 9) => {
     attempts,
     cards,
     areAllCardsSelected,
+    areDifferent,
+    cardsRevealed,
     handleCardClick,
     handleResetGame
   };

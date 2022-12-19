@@ -6,7 +6,15 @@ import { Card } from '../card';
 import { useBoard } from './use-boards';
 
 export const Board = () => {
-  const { attempts, areAllCardsSelected, cards, handleCardClick, handleResetGame } = useBoard(9);
+  const {
+    attempts,
+    areAllCardsSelected,
+    cards,
+    handleCardClick,
+    handleResetGame,
+    areDifferent,
+    cardsRevealed
+  } = useBoard(9);
 
   return (
     <>
@@ -35,7 +43,13 @@ export const Board = () => {
         )}
         <SimpleGrid columns={24} gap={[1, 3]}>
           {cards.map(card => (
-            <Card key={card.id} card={card} handleCardClick={handleCardClick} />
+            <Card
+              key={card.id}
+              card={card}
+              handleCardClick={handleCardClick}
+              areDifferentCardsSelected={areDifferent}
+              cardsRevealed={cardsRevealed}
+            />
           ))}
         </SimpleGrid>
       </Stack>
